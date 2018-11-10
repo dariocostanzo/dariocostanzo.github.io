@@ -1,6 +1,6 @@
 body {
-    background: url(https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/37606807_10156776932768258_2621074152538243072_n.jpg?_nc_cat=100&_nc_ht=scontent-lhr3-1.xx&oh=21390140aba91d302f6647aaaba07637&oe=5C3CCC9C);
-    background-size:cover;
+    background: url(https://images.unsplash.com/photo-1523280014048-db0f68b6c459?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5ab946127468488c5ccb857aa7be1f7e&auto=format&fit=crop&w=1950&q=80);
+    background-size: cover; /*background-size: auto|length|cover|contain|initial|inherit;*/
     background-position: center;
     font-family: Lato, sans-serif;
     color: white;
@@ -29,3 +29,5 @@ hr{
 	border-top: 1px solid #f8f8f8;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
+
+/*https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/37606807_10156776932768258_2621074152538243072_n.jpg?_nc_cat=100&_nc_ht=scontent-lhr3-1.xx&oh=21390140aba91d302f6647aaaba07637&oe=5C3CCC9C*/
