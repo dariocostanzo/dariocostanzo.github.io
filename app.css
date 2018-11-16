@@ -52,3 +52,11 @@ hr{
 li{
 	text-align: left;
 }
+
+.purple{
+	background: url(https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/37606807_10156776932768258_2621074152538243072_n.jpg?_nc_cat=100&_nc_ht=scontent-lhr3-1.xx&oh=520fa8a6a978b963b038cb1ac9abafed&oe=5C64599C);
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;	
+}
