@@ -32,4 +32,11 @@ button.addEventListener("click", function(){
 	document.body.classList.toggle("purple");
 });
 
-window.scrollTo(0,0);
+var picture = document.getElementById("picture");
+
+picture.addEventListener("mouseover", function(){
+	picture.style.color = "yellow";
+});
+picture.addEventListener("mouseout", function(){
+	picture.style.color = "white";
+});

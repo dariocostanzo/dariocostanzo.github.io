@@ -60,3 +60,8 @@ li{
     background-repeat: no-repeat;
     background-attachment: fixed;	
 }
+
+.selected{
+	color: rgb(0,0,128);
+}
+
