@@ -1,19 +1,38 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	
+
 	<title>jQuery Exercise</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	
 </head>
 <body>
 
+<ol>
+	<li>Select all divs and give them a purple background<br></li>
+$("div").css("background", "purple");<br>
+	<li>Select all divs and give them a purple background<br></li>
+$("div").css("background", "purple");<br>
+
+	<li>Select the divs with class "highlight" and make them 200px width<br></li>
+$("div.highlight").css("width", "200px");<br>
+
+	<li>Select the div with id "third" and giv it a orange border<br></li>
+$("#third").css("border", "4px solid orange");<br>
+
+	<li>Select the first div only and change its font color to pink<br></li>
+$("div:first").css("color","pink");<br>
+
+</ol>
 	<div>Div 1</div>
 	<div class="highlight">Div 2</div>
 	<div id="third">Div 3</div>
 	<div class="highlight">Div 4</div>
 
 	<script type="text/javascript" src="demo.js"></script>
+
+
 
 </body>
 </html>

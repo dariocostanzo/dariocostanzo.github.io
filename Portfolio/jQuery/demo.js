@@ -10,5 +10,6 @@ $("#third").css("border", "4px solid orange");
 //Select the first div only and change its font color to pink
 $("div:first").css("color","pink");
 
+$("li").css("font-weight", "bold");
 
 
