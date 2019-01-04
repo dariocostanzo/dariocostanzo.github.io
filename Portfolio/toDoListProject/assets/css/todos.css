@@ -1,10 +1,41 @@
 #container{
 	width: 360px;
-	margin: 0 auto; /*margin and top = 0, left and right auto = auto*/
-	border: 2px solid gray;
+	margin: 100px auto; /*margin bottom and top = 0, left and right auto = auto*/
+	/*border: 2px solid gray;*/
+	box-shadow: 0 0 3px rgba(0,0,0,0.1);
+	background-color: #f7f7f7;
 }
 
 .completed {
 	color : gray;
 	text-decoration: line-through;
+}
+
+h1 {
+	color: white;
+	background-color: #2980b9;
+	margin: 0;
+	padding: 10px 20px; /*10px top and bottom, 20 left and right*/
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+/*override the style of the bullet points*/
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+li {
+	background: #fff;
+}
+
+li:nth-child(2n){ /*every second li*/
+	background: #f7f7f7;
 }
