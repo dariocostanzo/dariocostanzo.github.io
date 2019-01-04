@@ -40,6 +40,16 @@ $("input[type='text']").keypress(function(event){
 		var todoText = $(this).val(); //grabbing new todo text from input
 		$(this).val(""); //empty input when I type a new todo
 		//create a new li and add to ul
-		$("ul").append("<li><span>X</span> " + todoText + "</li>");
+		$("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
 	}
 });
+
+// 1. Append method
+// $("ul").append("<li><span>X</span> " + todoText + "</li>");
+// Which can take a string of HTML and append those elements to whatever we select
+
+// 2. Using "On" rather than ".click"
+// $("ul").on("click", "span", function(event){
+// $("ul").on("click", "li", function(){
+// and the second argument that specifies li's that may or may not append
+// on the page when onloaded 
