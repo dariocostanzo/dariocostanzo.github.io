@@ -34,7 +34,7 @@ $("ul").on("click", "span", function(event){
 	event.stopPropagation(); //stop from bubbling up to other elements
 });
 
-//add a listener to inout
+//add a listener to input
 $("input[type='text']").keypress(function(event){
 	if(event.which === 13){ //13 refers to enter
 		var todoText = $(this).val(); //grabbing new todo text from input
@@ -52,4 +52,9 @@ $("input[type='text']").keypress(function(event){
 // $("ul").on("click", "span", function(event){
 // $("ul").on("click", "li", function(){
 // and the second argument that specifies li's that may or may not append
-// on the page when onloaded 
+// on the page when onloaded
+
+$(".fa-plus").click(function(){
+	$("input[type='text']").fadeToggle()
+});
+
