@@ -64,3 +64,8 @@ li{
 .selected{
 	color: rgb(0,0,128);
 }
+
+#tippin{
+	padding-top: 5px;
+	padding-left: 15px;
+}
