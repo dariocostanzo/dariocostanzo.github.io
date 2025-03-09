@@ -119,6 +119,7 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            position: relative;
         }
         
         .project:hover {
@@ -181,6 +182,32 @@
             background-color: var(--secondary-color);
         }
         
+        .btn.disabled {
+            background-color: #999;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .coming-soon {
+            position: absolute;
+            top: 25px;
+            right: -30px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 0;
+            width: 150px;
+            text-align: center;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .project.disabled {
+            opacity: 0.8;
+        }
+        
         footer {
             background-color: var(--dark-color);
             color: var(--white);
@@ -206,9 +233,10 @@
                 <h1>Dario Costanzo</h1>
                 <p>AI & Machine Learning Developer</p>
                 <div class="social-links">
-                    <a href="https://github.com/dariocostanzo" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/dariocostanzo" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/costanzodario/" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank" rel="noopener" title="Twitter Profile"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener" title="Hugging Face Profile"><i class="fab fa-huggingface"></i></a>
                 </div>
             </div>
         </div>
@@ -259,11 +287,12 @@
                             <span>Flask</span>
                             <span>JavaScript</span>
                         </div>
-                        <a href="https://github.com/dariocostanzo/ai-chess-opponent" class="btn" target="_blank">View Project</a>
+                        <a href="https://dariocostanzo.github.io/ai-chess-opponent/" class="btn" target="_blank" rel="noopener">View Project</a>
                     </div>
                 </div>
 
-                <div class="project">
+                <div class="project disabled">
+                    <div class="coming-soon">Coming Soon</div>
                     <div class="project-image">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -278,11 +307,12 @@
                             <span>Streamlit</span>
                             <span>Plotly</span>
                         </div>
-                        <a href="https://github.com/dariocostanzo/sentiment-analysis-dashboard" class="btn" target="_blank">View Project</a>
+                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
                     </div>
                 </div>
 
-                <div class="project">
+                <div class="project disabled">
+                    <div class="coming-soon">Coming Soon</div>
                     <div class="project-image">
                         <i class="fas fa-paint-brush"></i>
                     </div>
@@ -297,11 +327,12 @@
                             <span>Flask</span>
                             <span>React</span>
                         </div>
-                        <a href="https://github.com/dariocostanzo/neural-style-transfer-app" class="btn" target="_blank">View Project</a>
+                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
                     </div>
                 </div>
 
-                <div class="project">
+                <div class="project disabled">
+                    <div class="coming-soon">Coming Soon</div>
                     <div class="project-image">
                         <i class="fas fa-book"></i>
                     </div>
@@ -316,11 +347,12 @@
                             <span>Flask</span>
                             <span>Stable Diffusion</span>
                         </div>
-                        <a href="https://github.com/dariocostanzo/ai-text-adventure" class="btn" target="_blank" rel="noopener">View Project</a>
+                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
                     </div>
                 </div>
 
-                <div class="project">
+                <div class="project disabled">
+                    <div class="coming-soon">Coming Soon</div>
                     <div class="project-image">
                         <i class="fas fa-microphone"></i>
                     </div>
@@ -335,7 +367,7 @@
                             <span>NLTK</span>
                             <span>PyQt</span>
                         </div>
-                        <a href="https://github.com/dariocostanzo/voice-assistant" class="btn" target="_blank">View Project</a>
+                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
                     </div>
                 </div>
             </div>
