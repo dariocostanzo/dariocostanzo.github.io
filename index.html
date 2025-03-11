@@ -1,383 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dario Costanzo - AI Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2980b9;
-            --dark-color: #222;
-            --light-color: #f4f4f4;
-            --success-color: #28a745;
-            --white: #fff;
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2980b9;
+        --dark-color: #222;
+        --light-color: #f4f4f4;
+        --success-color: #28a745;
+        --white: #fff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: var(--light-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Navigation styles */
+      nav {
+        background-color: var(--dark-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 1.5rem;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--white);
+        margin: 2px 0;
+        transition: 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--dark-color);
+          flex-direction: column;
+          align-items: center;
+          padding: 1rem 0;
+          transform: translateY(-100%);
+          opacity: 0;
+          transition: transform 0.3s, opacity 0.3s;
+          pointer-events: none;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: all;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+
+        .nav-links li {
+          margin: 0.5rem 0;
         }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid var(--white);
-            margin-bottom: 1rem;
-            object-fit: cover;
-            background-color: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .profile-image i {
-            font-size: 60px;
-            color: #aaa;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            color: var(--white);
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-        
-        .social-links a:hover {
-            transform: scale(1.2);
-        }
-        
-        main {
-            padding: 3rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-        
-        .skill {
-            background-color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: var(--white);
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid var(--white);
+        margin-bottom: 1rem;
+        object-fit: cover;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .profile-image i {
+        font-size: 60px;
+        color: #aaa;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: var(--white);
+        font-size: 1.5rem;
+        transition: transform 0.3s;
+      }
+
+      .social-links a:hover {
+        transform: scale(1.2);
+      }
+
+      main {
+        padding: 3rem 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .skill {
+        background-color: var(--white);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project {
+        background-color: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        position: relative;
+      }
+
+      .project:hover {
+        transform: translateY(-10px);
+      }
+
+      .project-image {
+        height: 180px;
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .project-image i {
+        font-size: 50px;
+        color: #aaa;
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-title {
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .project-description {
+        margin-bottom: 1rem;
+        color: #666;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-tech span {
+        background-color: #e7f5ff;
+        color: var(--primary-color);
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.8rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .btn.disabled {
+        background-color: #999;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .coming-soon {
+        position: absolute;
+        top: 25px;
+        right: -30px;
+        background-color: #e74c3c;
+        color: white;
+        padding: 5px 0;
+        width: 150px;
+        text-align: center;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .project.disabled {
+        opacity: 0.8;
+      }
+
+      footer {
+        background-color: var(--dark-color);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      @media (max-width: 768px) {
         .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+          grid-template-columns: 1fr;
         }
-        
-        .project {
-            background-color: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            position: relative;
-        }
-        
-        .project:hover {
-            transform: translateY(-10px);
-        }
-        
-        .project-image {
-            height: 180px;
-            background-color: #eee;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .project-image i {
-            font-size: 50px;
-            color: #aaa;
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-title {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        
-        .project-description {
-            margin-bottom: 1rem;
-            color: #666;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .project-tech span {
-            background-color: #e7f5ff;
-            color: var(--primary-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-size: 0.8rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .btn.disabled {
-            background-color: #999;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-        
-        .coming-soon {
-            position: absolute;
-            top: 25px;
-            right: -30px;
-            background-color: #e74c3c;
-            color: white;
-            padding: 5px 0;
-            width: 150px;
-            text-align: center;
-            transform: rotate(45deg);
-            font-size: 0.8rem;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        
-        .project.disabled {
-            opacity: 0.8;
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            .projects {
-                grid-template-columns: 1fr;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h1>Dario Costanzo</h1>
-                <p>AI & Machine Learning Developer</p>
-                <div class="social-links">
-                    <a href="https://github.com/dariocostanzo" target="_blank" rel="noopener" title="GitHub Profile"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/costanzodario/" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank" rel="noopener" title="Twitter Profile"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" target="_blank" rel="noopener" title="Hugging Face Profile"><i class="fab fa-huggingface"></i></a>
-                </div>
-            </div>
+  </head>
+  <body>
+    <!-- Add navigation before header -->
+    <nav>
+      <div class="container nav-container">
+        <a href="#" class="logo">DC</a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header>
+      <div class="container">
+        <div class="profile-container">
+          <div class="profile-image">
+            <i class="fas fa-user"></i>
+          </div>
+          <h1>Dario Costanzo</h1>
+          <p>AI & Machine Learning Developer</p>
+          <div class="social-links">
+            <a
+              href="https://github.com/dariocostanzo"
+              target="_blank"
+              rel="noopener"
+              title="GitHub Profile"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/costanzodario/"
+              target="_blank"
+              rel="noopener"
+              title="LinkedIn Profile"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://huggingface.co/LordDreamy"
+              target="_blank"
+              rel="noopener"
+              title="Hugging Face Profile"
+              >🤗</a
+            >
+          </div>
+        </div>
+      </div>
     </header>
 
     <main class="container">
-        <section>
-            <h2 class="section-title">About Me</h2>
-            <p>
-                I'm an AI and Machine Learning developer passionate about creating intelligent, interactive applications. 
-                My expertise spans across various AI domains including natural language processing, computer vision, and 
-                reinforcement learning. Through my projects, I aim to demonstrate practical applications of AI that solve 
-                real-world problems and enhance user experiences.
-            </p>
-        </section>
+      <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          I'm an AI and Machine Learning developer passionate about creating
+          intelligent, interactive applications. My expertise spans across
+          various AI domains including natural language processing, computer
+          vision, and reinforcement learning. Through my projects, I aim to
+          demonstrate practical applications of AI that solve real-world
+          problems and enhance user experiences.
+        </p>
+      </section>
 
-        <section>
-            <h2 class="section-title">Skills</h2>
-            <div class="skills">
-                <div class="skill">Python</div>
-                <div class="skill">TensorFlow</div>
-                <div class="skill">PyTorch</div>
-                <div class="skill">Natural Language Processing</div>
-                <div class="skill">Machine Learning</div>
-                <div class="skill">Computer Vision</div>
-                <div class="skill">Flask</div>
-                <div class="skill">React</div>
-                <div class="skill">Docker</div>
-                <div class="skill">Git</div>
+      <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+          <div class="skill">Python</div>
+          <div class="skill">TensorFlow</div>
+          <div class="skill">PyTorch</div>
+          <div class="skill">Natural Language Processing</div>
+          <div class="skill">Machine Learning</div>
+          <div class="skill">Computer Vision</div>
+          <div class="skill">Flask</div>
+          <div class="skill">React</div>
+          <div class="skill">Docker</div>
+          <div class="skill">Git</div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects">
+          <div class="project">
+            <div class="project-image">
+              <i class="fas fa-chess"></i>
             </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <div class="project-image">
-                        <i class="fas fa-chess"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">AI Chess Opponent</h3>
-                        <p class="project-description">
-                            A chess application with an AI opponent using minimax algorithm and neural networks for position evaluation.
-                        </p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>JavaScript</span>
-                            <span>chess.js</span>
-                            <span>react-chessboard</span>
-                        </div>
-                        <a href="https://dariocostanzo.github.io/ai-chess-opponent/" class="btn" target="_blank" rel="noopener">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project disabled">
-                    <div class="coming-soon">Coming Soon</div>
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Sentiment Analysis Dashboard</h3>
-                        <p class="project-description">
-                            A dashboard application for analyzing sentiment from various text sources and visualizing the results.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Hugging Face</span>
-                            <span>Streamlit</span>
-                            <span>Plotly</span>
-                        </div>
-                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
-                    </div>
-                </div>
-
-                <div class="project disabled">
-                    <div class="coming-soon">Coming Soon</div>
-                    <div class="project-image">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Image Style Transfer App</h3>
-                        <p class="project-description">
-                            An application that applies artistic styles to user-uploaded images using neural style transfer.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Flask</span>
-                            <span>React</span>
-                        </div>
-                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
-                    </div>
-                </div>
-
-                <div class="project disabled">
-                    <div class="coming-soon">Coming Soon</div>
-                    <div class="project-image">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">AI Text Adventure Game</h3>
-                        <p class="project-description">
-                            A text-based adventure game that uses language models to generate dynamic storylines based on player choices.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Hugging Face</span>
-                            <span>Flask</span>
-                            <span>Stable Diffusion</span>
-                        </div>
-                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
-                    </div>
-                </div>
-
-                <div class="project disabled">
-                    <div class="coming-soon">Coming Soon</div>
-                    <div class="project-image">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Personal Assistant with Voice Recognition</h3>
-                        <p class="project-description">
-                            A desktop application that serves as a personal assistant with voice recognition and task automation.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>SpeechRecognition</span>
-                            <span>NLTK</span>
-                            <span>PyQt</span>
-                        </div>
-                        <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
-                    </div>
-                </div>
+            <div class="project-content">
+              <h3 class="project-title">AI Chess Opponent</h3>
+              <p class="project-description">
+                A chess application with an AI opponent using minimax algorithm
+                and neural networks for position evaluation.
+              </p>
+              <div class="project-tech">
+                <span>React</span>
+                <span>JavaScript</span>
+                <span>chess.js</span>
+                <span>react-chessboard</span>
+              </div>
+              <a
+                href="https://dariocostanzo.github.io/ai-chess-opponent/"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >View Project</a
+              >
             </div>
-        </section>
+          </div>
+
+          <div class="project">
+            <div class="project-image">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Sentiment Analysis Dashboard</h3>
+              <p class="project-description">
+                A dashboard application for analyzing sentiment from various
+                text sources and visualizing the results.
+              </p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Hugging Face</span>
+                <span>Streamlit</span>
+                <span>Plotly</span>
+              </div>
+              <a
+                href="https://github.com/dariocostanzo/sentiment-analysis-dashboard.git"
+                class="btn"
+                target="_blank"
+                rel="noopener"
+                >View Project</a
+              >
+            </div>
+          </div>
+
+          <div class="project disabled">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="project-image">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Image Style Transfer App</h3>
+              <p class="project-description">
+                An application that applies artistic styles to user-uploaded
+                images using neural style transfer.
+              </p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>TensorFlow</span>
+                <span>Flask</span>
+                <span>React</span>
+              </div>
+              <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
+            </div>
+          </div>
+
+          <div class="project disabled">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="project-image">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">AI Text Adventure Game</h3>
+              <p class="project-description">
+                A text-based adventure game that uses language models to
+                generate dynamic storylines based on player choices.
+              </p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Hugging Face</span>
+                <span>Flask</span>
+                <span>Stable Diffusion</span>
+              </div>
+              <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
+            </div>
+          </div>
+
+          <div class="project disabled">
+            <div class="coming-soon">Coming Soon</div>
+            <div class="project-image">
+              <i class="fas fa-microphone"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                Personal Assistant with Voice Recognition
+              </h3>
+              <p class="project-description">
+                A desktop application that serves as a personal assistant with
+                voice recognition and task automation.
+              </p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>SpeechRecognition</span>
+                <span>NLTK</span>
+                <span>PyQt</span>
+              </div>
+              <a href="#" class="btn disabled" rel="noopener">Coming Soon</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Dario Costanzo. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 Dario Costanzo. All rights reserved.</p>
+      </div>
     </footer>
-</body>
+
+    <!-- Add JavaScript for mobile menu -->
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            navLinks.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
